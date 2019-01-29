@@ -185,7 +185,7 @@ $(".berkedip").toggle();
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="mb-0">Data Transaksi Anda</h5>
-                                <p>Berikut adalah daftar transaksi Anda di P.O Bus Budiman | <i><small><marqueee behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()">Pesanan akan otomatis batal jika tidak melakukan pembayaran lebih dari 1 hari.</marquee></small></i></p>
+                                <p>Berikut adalah daftar transaksi Anda di P.O Bus Budiman |<small><marquee behavior="scroll" width="600" onmouseover="this.stop()" onmouseout="this.start()">Pesanan akan otomatis batal jika tidak melakukan pembayaran lebih dari 1 hari. Untuk itu, segera lakukan pembayaran dan upload bukti bayar melalui tombol "Upload Bukti Bayar".</marquee></small></p>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
