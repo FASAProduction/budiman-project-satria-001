@@ -1,0 +1,7 @@
+1. Jumlah penumpang bisa minus (Fazal)
+2. Ditambah jumlah kursi (Fazal)
+3. jadwal dipisah (Rizky)
+4. Validasi pembayaran (1x24 jam) (Rizky)
+5. Jumlah pesan bisa ditulis -1 (Fazal)
+6. Usia bisa ditulis -1 (Fazal)
+7. Status batal: mengacu pada jumlah kursi (Rizky)
