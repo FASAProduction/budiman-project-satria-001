@@ -3,6 +3,10 @@ include "config.php";
 $query = mysqli_query($connection, "select * from kendaraan");
 ?>
 
+<?php
+include '../halo-pelanggan/function/rupiah.php'
+?>
+
 <!-- Static Table Start -->
 <div class="data-table-area mg-b-15">
     <div class="container-fluid">
@@ -54,7 +58,7 @@ $query = mysqli_query($connection, "select * from kendaraan");
                                         <td><font face="trebuchet MS"><?php echo $data["nomor_kendaraan"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["merek_kendaraan"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["kelas_kendaraan"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["harga_kelas"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo rupiah($data["harga_kelas"]); ?></font></td>
                                         <td>
                                         <a href="?act=edit_kendaraan&id_kendaraan=<?php echo $data['id_kendaraan']; ?>" ><i class="fa fa-edit edu-checked-pro" aria-hidden="true" style="color: blue; font-size: 15px"> Edit </i></a> |
                                         <a href="pages/kendaraan/hapus_kendaraan.php?id_kendaraan=<?php echo $data['id_kendaraan']; ?>" onClick="return confirm('Apakah anda yakin untuk menghapus data ini?');"  ><i class="fa fa-trash edu-checked-pro" aria-hidden="true" style="color: red; font-size: 15px"> Delete </i></a>

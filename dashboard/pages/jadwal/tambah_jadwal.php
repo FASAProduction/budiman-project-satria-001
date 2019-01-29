@@ -64,7 +64,7 @@
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Nama Kendaraan</label>
+                                                        <label class="login2 pull-right pull-right-pro">Kendaraan</label>
                                                     </div>
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <div class="form-select-list">
@@ -77,7 +77,7 @@
                                                                 ?>
                                                                 <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
                                                                 <?php extract($row); ?>
-                                                                <option value="<?php echo $row['id_kendaraan']; ?>"><?php echo $row['merek_kendaraan']; ?></option>
+                                                                <option value="<?php echo $row['id_kendaraan']; ?>"><?php echo $row['merek_kendaraan']; ?> - <?php echo $row['nomor_kendaraan']; ?></option>
                                                                 <?php endwhile; ?>
                                                             </select>
                                                         </div>

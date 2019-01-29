@@ -3,6 +3,10 @@ include "config.php";
 $query = mysqli_query($connection, "select * from jadwal_keberangkatan");
 ?>
 
+<?php
+include '../halo-pelanggan/function/rupiah.php'
+?>
+
 <!-- Static Table Start -->
 <div class="data-table-area mg-b-15">
     <div class="container-fluid">
@@ -55,7 +59,7 @@ $query = mysqli_query($connection, "select * from jadwal_keberangkatan");
                                         <td><font face="trebuchet MS"><?php echo $data["tgl_berangkat"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["jam"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["tujuan"]; ?></font></td>
-										<td><font face="trebuchet MS"><?php echo $data["harga"]; ?></font></td>
+										<td><font face="trebuchet MS"><?php echo rupiah($data["harga"]); ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["jml_kursi"]; ?> Kursi</font></td>
                                         <td>
                                         <a href="?act=edit_jadwal&id_jadwal=<?php echo $data['id_jadwal']; ?>" ><i class="fa fa-edit edu-checked-pro" aria-hidden="true" style="color: blue; font-size: 15px"> Edit </i></a> |
