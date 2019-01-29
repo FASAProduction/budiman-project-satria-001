@@ -39,6 +39,7 @@ $query = mysqli_query($connection, "select * from jadwal_keberangkatan");
                                         <th data-field="jam">Jam</th>
                                         <th data-field="tujuan">Tujuan</th>
 										<th data-field="harga">Harga</th>
+                                        <th data-field="jml_kursi">Jumlah Kursi</th>
                                         <th data-field="aksi">Aksi</th>
                                     </tr>
                                 </thead>
@@ -55,6 +56,7 @@ $query = mysqli_query($connection, "select * from jadwal_keberangkatan");
                                         <td><font face="trebuchet MS"><?php echo $data["jam"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["tujuan"]; ?></font></td>
 										<td><font face="trebuchet MS"><?php echo $data["harga"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo $data["jml_kursi"]; ?> Kursi</font></td>
                                         <td>
                                         <a href="?act=edit_jadwal&id_jadwal=<?php echo $data['id_jadwal']; ?>" ><i class="fa fa-edit edu-checked-pro" aria-hidden="true" style="color: blue; font-size: 15px"> Edit </i></a> |
                                         <a href="pages/jadwal/hapus_jadwal.php?id_jadwal=<?php echo $data['id_jadwal']; ?>" onClick="return confirm('Apakah anda yakin untuk menghapus data ini?');"  ><i class="fa fa-trash edu-checked-pro" aria-hidden="true" style="color: red; font-size: 15px"> Delete </i></a>
