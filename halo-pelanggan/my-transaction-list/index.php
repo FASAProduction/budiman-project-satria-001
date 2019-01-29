@@ -173,6 +173,11 @@ John Abraham</span>is now following you
                 </div>
                 <!-- ============================================================== -->
                 <!-- end pageheader -->
+<script>
+setInterval(function(){
+$(".berkedip").toggle();
+},400);
+</script>
                 <!-- ============================================================== -->
                 
                 <div class="row">
@@ -180,7 +185,7 @@ John Abraham</span>is now following you
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="mb-0">Data Transaksi Anda</h5>
-                                <p>Berikut adalah daftar transaksi Anda di P.O Bus Budiman</p>
+                                <p>Berikut adalah daftar transaksi Anda di P.O Bus Budiman | <i><small><marqueee behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()">Pesanan akan otomatis batal jika tidak melakukan pembayaran lebih dari 1 hari.</marquee></small></i></p>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -240,7 +245,6 @@ John Abraham</span>is now following you
         } ?>
                                         </tbody>
                                     </table>
-									<p><i><small>Pesanan akan dihapus jika setelah 1 hari tidak melakukan pembayaran.</small></i></p>
                                     <!-- Modal -->
                                         <div class="modal fade" id="exampleModal"  role="dialog">
                                             <div class="modal-dialog">
@@ -278,8 +282,6 @@ John Abraham</span>is now following you
                                                 </div> 
                                             </div>  
                                         </div>
-
-                                        
                                 </div>
                             </div>
                         </div>
@@ -316,6 +318,7 @@ John Abraham</span>is now following you
             })
         }
     </script>
+    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 </body>
  
 </html>
