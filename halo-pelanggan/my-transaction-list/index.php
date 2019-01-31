@@ -35,7 +35,7 @@ where pesan.id_pelanggan='$_SESSION[id_pelanggan]' order by id_transaksi desc");
                                         }else if ($_SESSION['jk'] == 'Wanita') {
                                             $jekel = "Sdri. ";
                                         }else{
-                                            $jekel = "Tidak Diketahui.";
+                                            $jekel = "";
                                         }
                                         ?>
 
