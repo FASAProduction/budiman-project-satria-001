@@ -63,13 +63,45 @@ $data = mysqli_fetch_array($query);
                                                     </div>
                                                 </div>
                                             </div>
-											                      <div class="form-group-inner">
+											<div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                                                         <label class="login2 pull-right pull-right-pro">Harga</label>
                                                     </div>
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <input type="text" name="harga" class="form-control" value="<?php echo $data['harga']; ?>" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Jumlah Kursi</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <input type="text" name="jml_kursi" class="form-control" value="<?php echo $data['jml_kursi']; ?>" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Diskon Tujuan</label>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                      <div class="form-select-list">
+                                                          <select class="form-control custom-select-value" name="diskon">
+                                                            <option value="">- Pilih Diskon -</option>
+                                                            <option value="">Tidak Ada Diskon</option>
+                                                            <option value="10">Diskon 10%</option>
+                                                            <option value="15">Diskon 15%</option>
+                                                            <option value="20">Diskon 20%</option>
+                                                            <option value="25">Diskon 25%</option>
+                                                            <option value="30">Diskon 30%</option>
+                                                            <option value="40">Diskon 40%</option>
+                                                            <option value="50">Diskon 50%</option>
+                                                          </select>
+                                                      </div>
                                                     </div>
                                                 </div>
                                             </div>

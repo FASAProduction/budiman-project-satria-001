@@ -96,6 +96,28 @@
                                             </div>
                                             <div class="form-group-inner">
                                                 <div class="row">
+                                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Diskon Tujuan</label>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                      <div class="form-select-list">
+                                                          <select class="form-control custom-select-value" name="diskon">
+                                                            <option value="">- Pilih Diskon -</option>
+                                                            <option value="">Tidak Ada Diskon</option>
+                                                            <option value="10">Diskon 10%</option>
+                                                            <option value="15">Diskon 15%</option>
+                                                            <option value="20">Diskon 20%</option>
+                                                            <option value="25">Diskon 25%</option>
+                                                            <option value="30">Diskon 30%</option>
+                                                            <option value="40">Diskon 40%</option>
+                                                            <option value="50">Diskon 50%</option>
+                                                          </select>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-inner">
+                                                <div class="row">
                                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 

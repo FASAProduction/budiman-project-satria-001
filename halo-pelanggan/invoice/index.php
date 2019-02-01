@@ -264,20 +264,30 @@ John Abraham</span>is now following you
                                         Jika melebihi waktu tersebut, pelanggan dinyatakan batal dalam memesan.</small></i></p>
                                         </div>
                                         <div class="col-lg-4 col-sm-5 ml-auto">
+                                        <?php
+                                        $diskon = ($pesan['diskon']);
+                                        $subtotal = ($pesan['sub_total']);
+
+                                                    if ($pesan['diskon'] == $diskon){
+                                                    $total = (($subtotal * $diskon)/100);
+                                                    }else{
+                                                        $total = $subtotal;
+                                                    }
+                                        ?>
                                             <table class="table table-clear">
                                                 <tbody>
                                                     <tr>
                                                         <td class="left">
                                                             <strong class="text-dark">Diskon</strong>
                                                         </td>
-                                                        <td class="right">0%</td>
+                                                        <td class="right"><?php echo $diskon; ?>%</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="left">
-                                                            <strong class="text-dark">Total</strong>
+                                                            <strong class="text-dark">Total Bayar</strong>
                                                         </td>
                                                         <td class="right">
-                                                            <strong class="text-dark"><?php echo rupiah($pesan['sub_total']); ?></strong>
+                                                            <strong class="text-dark"><?php echo rupiah($total); ?></strong>
                                                         </td>
                                                     </tr>
                                                 </tbody>

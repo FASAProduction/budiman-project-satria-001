@@ -1,15 +1,14 @@
 <?php
 include "config.php";
-$query = mysqli_query($connection, "SELECT pelanggan.nama_pelanggan, pesan.id_pesan, pesan.jml_penumpang, pesan.tgl_pesan, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, jadwal_keberangkatan.tujuan, jadwal_keberangkatan.id_jadwal 
+$query = mysqli_query($connection, "SELECT pelanggan.nama_pelanggan, pesan.id_pesan, pesan.jml_penumpang, pesan.tgl_pesan, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, jadwal_keberangkatan.tujuan, jadwal_keberangkatan.id_jadwal, transaksi.foto 
 FROM pesan
 JOIN pelanggan ON pelanggan.id_pelanggan = pesan.id_pelanggan
 JOIN kendaraan ON kendaraan.id_kendaraan = pesan.id_kendaraan
+JOIN transaksi ON pesan.id_pesan = transaksi.id_pesan
 JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal");
 ?>
 
-<?php
-include '../halo-pelanggan/function/auto_delete.php';
-?>
+
 
 <!-- Static Table Start -->
 <div class="data-table-area mg-b-15">
@@ -65,6 +64,13 @@ include '../halo-pelanggan/function/auto_delete.php';
                                         <td><font face="trebuchet MS"><?php echo $data["tgl_berangkat"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["tujuan"]; ?></font></td>
                                     </tr>
+                                    <?php
+                                        if ($data['foto'] == null){
+                                        include '../halo-pelanggan/function/auto_delete.php';
+                                        }else{
+                                            echo "";
+                                        }
+                                    ?>
                                             <?php 
                                             $no++;
                                         }

@@ -7,6 +7,8 @@ $tanggal = $_POST['tgl_berangkat'];
 $jam = $_POST['jam'];
 $tujuan = $_POST['tujuan'];
 $harga = $_POST['harga'];
+$jml_kursi = $_POST['jml_kursi'];
+$diskon = $_POST['diskon'];
 	
 //update data di database sesuai user_id
 
@@ -14,7 +16,9 @@ $sql = "update jadwal_keberangkatan set
 		tgl_berangkat='$tanggal',
 		jam='$jam',
         tujuan='$tujuan',
-		harga='$harga'
+		harga='$harga',
+		jml_kursi='$jml_kursi',
+		diskon='$diskon'
         where id_jadwal = '$id_jadwal'";
 
 
