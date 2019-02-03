@@ -63,14 +63,14 @@ JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal");
                                         <td><font face="trebuchet MS"><?php echo $data["merek_kendaraan"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["tgl_berangkat"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["tujuan"]; ?></font></td>
-                                    </tr>
-                                    <?php
+                                        <?php
                                         if ($data['foto'] == null){
-                                        include '../halo-pelanggan/function/auto_delete.php';
+                                        include 'auto_delete.php';
                                         }else{
                                             echo "";
                                         }
-                                    ?>
+                                        ?>
+                                    </tr>
                                             <?php 
                                             $no++;
                                         }

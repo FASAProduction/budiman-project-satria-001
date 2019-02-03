@@ -215,7 +215,7 @@ John Abraham</span>is now following you
                                                     <th>Jumlah Penumpang</th>
                                                     <th>Tanggal Berangkat</th>
                                                     <th>Jam Berangkat</th>
-                                                    <th class="right">Total</th>
+                                                    <th class="right">Subtotal</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -270,8 +270,9 @@ John Abraham</span>is now following you
 
                                                     if ($pesan['diskon'] == $diskon){
                                                     $total = (($subtotal * $diskon)/100);
+                                                    $hasil = $subtotal - $total;
                                                     }else{
-                                                        $total = $subtotal;
+                                                        $hasil == $subtotal;
                                                     }
                                         ?>
                                             <table class="table table-clear">
@@ -287,7 +288,7 @@ John Abraham</span>is now following you
                                                             <strong class="text-dark">Total Bayar</strong>
                                                         </td>
                                                         <td class="right">
-                                                            <strong class="text-dark"><?php echo rupiah($total); ?></strong>
+                                                            <strong class="text-dark"><?php echo rupiah($hasil); ?></strong>
                                                         </td>
                                                     </tr>
                                                 </tbody>
