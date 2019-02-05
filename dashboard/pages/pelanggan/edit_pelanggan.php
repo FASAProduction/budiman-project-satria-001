@@ -71,10 +71,10 @@ $jk = $data['jk'];
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Usia</label>
+                                                        <label class="login2 pull-right pull-right-pro">Tgl Lahir</label>
                                                     </div>
-                                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
-                                                        <input type="text" name="usia" class="form-control" maxlength="2" value="<?php echo $data['usia']; ?>" />
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <input type="date" name="tgl_lahir" class="form-control" maxlength="16" value="<?php echo $data['tgl_lahir']; ?>" />
                                                     </div>
                                                 </div>
                                             </div>

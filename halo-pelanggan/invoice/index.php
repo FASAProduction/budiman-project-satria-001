@@ -215,7 +215,7 @@ John Abraham</span>is now following you
                                                     <th>Jumlah Penumpang</th>
                                                     <th>Tanggal Berangkat</th>
                                                     <th>Jam Berangkat</th>
-                                                    <th class="right">Subtotal</th>
+                                                    <th class="right">Total</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -263,7 +263,6 @@ John Abraham</span>is now following you
                                         <p><i><small>Batas waktu pengiriman paling lambat 1 hari setelah pemesanan.<br/>
                                         Jika melebihi waktu tersebut, pelanggan dinyatakan batal dalam memesan.</small></i></p>
                                         </div>
-                                        <div class="col-lg-4 col-sm-5 ml-auto">
                                         <?php
                                         $diskon = ($pesan['diskon']);
                                         $subtotal = ($pesan['sub_total']);
@@ -275,6 +274,7 @@ John Abraham</span>is now following you
                                                         $hasil == $subtotal;
                                                     }
                                         ?>
+                                        <div class="col-lg-4 col-sm-5 ml-auto">
                                             <table class="table table-clear">
                                                 <tbody>
                                                     <tr>
@@ -285,7 +285,7 @@ John Abraham</span>is now following you
                                                     </tr>
                                                     <tr>
                                                         <td class="left">
-                                                            <strong class="text-dark">Total Bayar</strong>
+                                                            <strong class="text-dark">Total</strong>
                                                         </td>
                                                         <td class="right">
                                                             <strong class="text-dark"><?php echo rupiah($hasil); ?></strong>

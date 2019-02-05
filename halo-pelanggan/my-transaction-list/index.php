@@ -35,7 +35,7 @@ where pesan.id_pelanggan='$_SESSION[id_pelanggan]' order by id_transaksi desc");
                                         }else if ($_SESSION['jk'] == 'Wanita') {
                                             $jekel = "Sdri. ";
                                         }else{
-                                            $jekel = "";
+                                            $jekel = "Tidak Diketahui.";
                                         }
                                         ?>
 
@@ -173,11 +173,6 @@ John Abraham</span>is now following you
                 </div>
                 <!-- ============================================================== -->
                 <!-- end pageheader -->
-<script>
-setInterval(function(){
-$(".berkedip").toggle();
-},400);
-</script>
                 <!-- ============================================================== -->
                 
                 <div class="row">
@@ -185,7 +180,7 @@ $(".berkedip").toggle();
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="mb-0">Data Transaksi Anda</h5>
-                                <p>Berikut adalah daftar transaksi Anda di P.O Bus Budiman |<small><marquee behavior="scroll" width="600" onmouseover="this.stop()" onmouseout="this.start()">Pesanan akan otomatis batal jika tidak melakukan pembayaran lebih dari 1 hari. Untuk itu, segera lakukan pembayaran dan upload bukti bayar melalui tombol "Upload Bukti Bayar".</marquee></small></p>
+                                <p>Berikut adalah daftar transaksi Anda di P.O Bus Budiman</p>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -245,6 +240,7 @@ $(".berkedip").toggle();
         } ?>
                                         </tbody>
                                     </table>
+									<p><i><small>Pesanan akan dihapus jika setelah 1 hari tidak melakukan pembayaran.</small></i></p>
                                     <!-- Modal -->
                                         <div class="modal fade" id="exampleModal"  role="dialog">
                                             <div class="modal-dialog">
@@ -282,6 +278,8 @@ $(".berkedip").toggle();
                                                 </div> 
                                             </div>  
                                         </div>
+
+                                        
                                 </div>
                             </div>
                         </div>
@@ -318,7 +316,6 @@ $(".berkedip").toggle();
             })
         }
     </script>
-    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 </body>
  
 </html>

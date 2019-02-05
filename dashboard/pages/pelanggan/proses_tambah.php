@@ -8,15 +8,15 @@ $acak2 = "j2rwt3iey3lap0kjdnd7nkd6jm7ndkd";
 $nama = $_POST['nama'];
 $alamat = $_POST['alamat'];
 $jk = $_POST['jk'];
-$usia = $_POST['usia'];
+$tgl_lahir = $_POST['tgl_lahir'];
 $ktp = $_POST['ktp'];
 $telp = $_POST['telp'];
 $pass = md5($acak . md5($_POST['password']) . $acak2);
 
 
-$sql = "insert into pelanggan (nama_pelanggan, alamat, jk, usia, no_ktp, no_telp, password) 
+$sql = "insert into pelanggan (nama_pelanggan, alamat, jk, tgl_lahir, no_ktp, no_telp, password) 
                 values
-                ('$nama', '$alamat', '$jk', '$usia', '$ktp', '$telp', '$pass')";
+                ('$nama', '$alamat', '$jk', '$tgl_lahir', '$ktp', '$telp', '$pass')";
 $hasil = mysqli_query($koneksi, $sql);
 
 if (!$hasil) {

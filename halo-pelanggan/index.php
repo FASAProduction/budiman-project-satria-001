@@ -171,7 +171,7 @@ John Abraham</span>is now following you
                                         Jenis Kelamin: <b><?php echo $_SESSION['jk'] ?></b> 
                                     </p>
                                     <p>
-                                        <a href="#" class="btn btn-success">Ubah Profil Saya
+                                        <a href="my-profile.php" class="btn btn-success">Ubah Profil Saya
                                          <i class="fa fa-edit"></i>
                                         </a>
                                     </p>
