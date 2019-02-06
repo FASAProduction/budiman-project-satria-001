@@ -171,8 +171,7 @@ John Abraham</span>is now following you
                                         Jenis Kelamin: <b><?php echo $_SESSION['jk'] ?></b> 
                                     </p>
                                     <p>
-                                        <a href="my-profile.php" class="btn btn-success">Ubah Profil Saya
-                                         <i class="fa fa-edit"></i>
+                                        <a href="my-profile.php" class="btn btn-success"><span class="badge badge-primary">BARU</span> Lihat Profil Saya
                                         </a>
                                     </p>
                                 </div>
@@ -197,7 +196,13 @@ John Abraham</span>is now following you
                                     ?>
                                     <div class="card-body">
                                         <p class="card-text">Anda memiliki <?php echo $jumlah; ?> transaksi.</p>
-                                        <a href="pesan-bus/" class="btn btn-primary">Pesan Sekarang</a>
+                                        <?php
+                                        if ($jumlah > 0){ ?>
+                                            <a href="pesan-bus/" class="btn btn-success">Pesan Lagi</a>
+                                        <?php }else{ ?>
+                                            <a href="pesan-bus/" class="btn btn-primary">Pesan Sekarang</a>
+                                        <?php }
+                                        ?>
                                     </div>
                                 </div>
                 </div>

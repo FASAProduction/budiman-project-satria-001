@@ -180,6 +180,9 @@ include 'function/rupiah.php';
                                         <a class="nav-link" id="pills-sms-tab" data-toggle="pill" href="#pills-sms" role="tab" aria-controls="pills-sms" aria-selected="false">SMS</a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" id="pills-edit-tab" data-toggle="pill" href="#pills-edit" role="tab" aria-controls="pills-edit" aria-selected="false">Edit Profil</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" id="pills-saran-tab" data-toggle="pill" href="#pills-saran" role="tab" aria-controls="pills-saran" aria-selected="false">Kirim Saran</a>
                                     </li>
                                 </ul>
@@ -220,6 +223,15 @@ include 'function/rupiah.php';
                                                                         </span>
                                                                             <span class="m-r-20 d-inline-block">Jam: <span class="m-l-10  text-success"><?= indonesian_hour_only($r['jam']); ?></span>
                                                                         </span>
+                                                                        <?php
+																		if ($r['foto'] == null){
+																			echo "<span class='m-r-20 d-inline-block'>Status: <span class='m-l-10  text-danger'>Belum Bayar</span>
+                                                                        </span>";
+																		}else{
+																			echo "<span class='m-r-20 d-inline-block'>Status: <span class='m-l-10  text-success'>Sudah Bayar</span>
+                                                                        </span>";
+																		}
+																		?>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -228,10 +240,28 @@ include 'function/rupiah.php';
                                                 </div>
                                             </div>
                                         </div>
-										<?php }else{
-												echo "Anda Belum memesan bus. Klik <b>PESAN SEKARANG</b> di bawah nama Anda.";
-										}
-									}?>
+										<?php }else{ ?>
+                                            <div class="card">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                        <div class="media influencer-profile-data d-flex align-items-center p-2">
+                                                            <div class="mr-4">
+                                                                <i class="fas fa-4x fa-bus"></i>
+                                                            </div>
+                                                            <div class="media-body ">
+                                                                <div class="influencer-profile-data">
+                                                                    <h3 class="m-b-10">Anda belum melakukan transaksi apapun.</h3>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+										<?php }
+                                    }?>
+                                    <p align="center">- Sepertinya sudah sampai akhir. -</p>
                                     </div>
                                     <div class="tab-pane fade" id="pills-sms" role="tabpanel" aria-labelledby="pills-sms-tab">
                                         <div class="card">
@@ -260,6 +290,25 @@ include 'function/rupiah.php';
 									}?>
                                         </div>
                                         
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-edit" role="tabpanel" aria-labelledby="pills-edit-tab">
+                                        <div class="card">
+                                            <h5 class="card-header">Edit Profil Anda <small><i>(Anda harus logout dan login terlebih dahulu untuk melihat perubahan.)</i></small></h5>
+                                            <div class="card-body">
+                                                <?php
+                                                $kon = new mysqli("localhost", "root", "", "budiman");
+
+                                                $id_pelanggan = $_SESSION['id_pelanggan'];
+                                                
+                                                $query = mysqli_query($kon, "select * from pelanggan where id_pelanggan='$id_pelanggan'") or die(mysqli_error());
+                                                
+                                                $data = mysqli_fetch_array($query);
+                                                
+                                                $jk = $data['jk'];
+                                                ?>
+                                                <?php include 'edit-profil.php' ?>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tab-pane fade" id="pills-saran" role="tabpanel" aria-labelledby="pills-saran-tab">
                                         <div class="card">

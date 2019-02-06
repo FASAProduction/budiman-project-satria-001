@@ -281,7 +281,7 @@ John Abraham</span>is now following you
                                                         <td class="left">
                                                             <strong class="text-dark">Diskon</strong>
                                                         </td>
-                                                        <td class="right"><?php echo $diskon; ?>%</td>
+                                                        <td class="right"><span class="badge badge-success"><?php echo $diskon; ?>%</span></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="left">

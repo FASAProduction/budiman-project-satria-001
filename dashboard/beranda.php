@@ -118,7 +118,7 @@
                 <div class="analytics-sparkle-line reso-mg-b-30 table-mg-t-pro dk-res-t-pro-30">
                     <div class="analytics-content">
                         <h5>Versi Aplikasi</h5>
-                        <h2><span class="counter">1.0</span></h2>
+                        <h2><span class="counter">2.5</span></h2>
                     </div>
                 </div>
             </div>
