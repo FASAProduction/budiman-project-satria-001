@@ -12,6 +12,9 @@ include 'function/indo_date.php';
 include 'function/indo_date2.php';
 include 'function/indo_date3.php';
 include 'function/rupiah.php';
+include 'function/waktu2.php';
+include 'function/waktu3.php';
+date_default_timezone_set('Asia/Jakarta');
 ?>
 
 <?php
@@ -216,7 +219,7 @@ include 'function/rupiah.php';
                                                                     <h3 class="m-b-10"><?= $r['id_transaksi']; ?> - <?= $r['tujuan']; ?></h3>
                                                                     <p>
                                                                         <span class="m-r-20 d-inline-block">Tanggal Pesan:
-                                                                            <span class="m-l-10 text-primary"><?= indonesian_date($r['tgl_transaksi']); ?></span>
+                                                                            <span class="m-l-10 text-primary"><?= indonesian_date($r['tgl_transaksi']); ?> (<?= time_since(strtotime($r['tgl_transaksi'])); ?>)</span>
                                                                         </span>
                                                                         <span class="m-r-20 d-inline-block"> Tanggal Berangkat:
                                                                             <span class="m-l-10 text-secondary"><?= indonesian_date_only($r['tgl_berangkat']); ?></span>
@@ -281,7 +284,7 @@ include 'function/rupiah.php';
                                             <div class="card-body">
                                                 <div class="review-block">
                                                     <p class="review-text font-italic m-0">“<?= $r['isi_sms']; ?>”</p>
-                                                    <span class="text-dark font-weight-bold">Admin Pusat</span><small class="text-mute"> (P.O Budiman)</small>
+                                                    <span class="text-dark font-weight-bold"><?=time_sejak(strtotime($r['tgl_sms']));?></span><small class="text-mute"> (Admin Pusat P.O Budiman)</small>
                                                 </div>
                                             </div>
 									<?php }else{

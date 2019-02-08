@@ -36,13 +36,12 @@ if (isset($_POST['simpan'])) {
 $koneksi = new mysqli("localhost", "root", "", "budiman");
 
 $id_transaksi = $_POST['id_transaksi'];
-$tgl_sms = date("Y-m-d H:i:s");
 $isi_sms = $_POST['isi_sms'];
 
 
-$sql = "insert into sms (id_transaksi, tgl_sms, isi_sms) 
+$sql = "insert into sms (id_transaksi, isi_sms) 
                 values
-                ('$id_transaksi', '$tgl_sms', '$isi_sms')";
+                ('$id_transaksi', '$isi_sms')";
 $hasil = mysqli_query($koneksi, $sql);
 
 if (!$hasil) {
