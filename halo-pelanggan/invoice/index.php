@@ -322,17 +322,24 @@ include '../function/rupiah.php';
                                                         $hasil == $subtotal;
                                                     }
                                         ?>
+
+                                        <?php
+                                        if ($diskon > 0){
+                                            $promo = "<tr>
+                                            <td class='left'>
+                                                <strong class='text-dark'>Diskon</strong>
+                                            </td>
+                                            <td class='right'><span class='badge badge-success'>$diskon%</span>
+                                            </td>
+                                        </tr>";
+                                        }else{
+                                            $promo = "";
+                                        }
+                                        ?>
                                     <div class="col-lg-4 col-sm-5 ml-auto">
                                         <table class="table table-clear">
                                             <tbody>
-                                                <tr>
-                                                    <td class="left">
-                                                        <strong class="text-dark">Diskon</strong>
-                                                    </td>
-                                                    <td class="right"><span
-                                                            class="badge badge-success"><?php echo $diskon; ?>%</span>
-                                                    </td>
-                                                </tr>
+                                                <?php echo $promo; ?>
                                                 <tr>
                                                     <td class="left">
                                                         <strong class="text-dark">Total</strong>

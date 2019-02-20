@@ -22,10 +22,28 @@ if ($data > 0) {
       $bayar = $r['harga'] + $r['harga_kelas'];
     if($r['merek_kendaraan'] != null){
           ?>
+          <?php
+          $diskon = ($r['diskon']);
+
+          if ($r['diskon'] == $diskon){
+          $total = (($bayar * $diskon)/100);
+          $hasil = $bayar - $total;
+          }else{
+              $hasil == $bayar;
+          }
+          ?>
+
+          <?php
+          if ($diskon > 0){
+            $promo = "<span class='badge badge-success'>Diskon $diskon%</span>";
+          }else{
+              $promo = "";
+          }
+          ?>
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
     <div class="card">
         <div class="card-header d-flex">
-            <h4 class="mb-0">Tujuan: <?= $r['nama_tujuan']; ?></h4>
+            <h4 class="mb-0">Tujuan: <?= $r['nama_tujuan']; ?> <?php echo $promo; ?></h4>
 
         </div>
         <div class="card-body">
@@ -37,13 +55,13 @@ if ($data > 0) {
                 Kelas: <b><?= $r['kelas_kendaraan']; ?></b>
             </p>
             <button class="btn btn-primary">
-                <?= rupiah($bayar); ?>
+                <?= rupiah($hasil); ?>
             </button>
             <a href="../cart/index.php?id_jadwal=<?= $r['id_jadwal']; ?>
                     &&id_kendaraan=<?= $r['id_kendaraan']; ?>
                     &&tujuan=<?= $r['nama_tujuan']; ?>
                     &&id_pelanggan=<?= $pelanggan; ?>
-                    &&total=<?= $bayar ?>"
+                    &&total=<?= $hasil ?>"
                 class="btn btn-success">Pesan</a>
         </div>
     </div>

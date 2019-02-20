@@ -129,6 +129,28 @@ while ($r = mysqli_fetch_assoc($query)) {
                     <div class="single-features-area mb-50">
                         <img src="img/bg-img/tujuan-1.jpg" alt="" width="500" height="500">
                         <!-- Price -->
+                        <?php
+                        $diskon = ($r['diskon']);
+
+                                    if ($r['diskon'] == $diskon){
+                                    $total = (($bayar * $diskon)/100);
+                                    $hasil = $bayar - $total;
+                                    }else{
+                                        $hasil == $bayar;
+                                        $promo = "";
+                                    }
+                        ?>
+
+                        <?php
+                        if ($diskon > 0){
+                            $promo = "<div class='price-start'>
+                                                <p>Diskon $r[diskon]% khusus untuk hari ini!</p>
+                                                </div>";
+                        }else{
+                            $promo = "";
+                        }
+                        ?>
+                        <?php echo $promo; ?>
                         <div class="feature-content d-flex align-items-center justify-content-between">
                             <div class="feature-title">
                                 <h5><?= $r['nama_tujuan']; ?></h5>
@@ -139,7 +161,7 @@ while ($r = mysqli_fetch_assoc($query)) {
                                     Jumlah Kursi: <b><?= $r['jml_kursi']; ?> Kursi tersedia</b><br />
 
                                     <div class="feature-favourite">
-                                        <a href=""><?php echo rupiah($bayar); ?></a> / Orang
+                                        <a href=""><?php echo rupiah($hasil); ?></a> / Orang
                                     </div>
 
                             </div>

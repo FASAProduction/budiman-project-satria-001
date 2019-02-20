@@ -12,7 +12,7 @@ $query = mysqli_query($connection, "select * from pelanggan");
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
                             <h1>Data Pelanggan</h1> 
-                            <a href="?act=tambah_pelanggan" type="button" class="btn btn-custon-rounded-three btn-success"><i class="fa fa-check edu-checked-pro" aria-hidden="true"></i> Tambah Data  </a> <a href="pages/pelanggan/truncate_pelanggan.php" type="button" class="btn btn-custon-rounded-three btn-danger" onClick="return confirm('Apakah anda yakin untuk menghapus semua data pelanggan?');"><i class="fa fa-check edu-checked-pro" aria-hidden="true"></i> Hapus Semua  </a>
+                            <a href="?act=tambah_pelanggan" type="button" class="btn btn-custon-rounded-three btn-success"><i class="fa fa-check edu-checked-pro" aria-hidden="true"></i> Tambah Data  </a>
                         </div>
                     </div>
                     <div class="sparkline13-graph">
