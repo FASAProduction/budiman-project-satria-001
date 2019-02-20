@@ -4,17 +4,16 @@ $koneksi = new mysqli("localhost", "root", "", "budiman");
 
 $tanggal = $_POST['tanggal'];
 $jam = $_POST['jam'];
-$tujuan = $_POST['tujuan'];
-$harga = $_POST['harga'];
+$id_tujuan = $_POST['id_tujuan'];
 $id_kendaraan = $_POST['id_kendaraan'];
 $jml_kursi = $_POST['jml_kursi'];
 $diskon = $_POST['diskon'];
 
 
 
-$sql = "insert into jadwal_keberangkatan (tgl_berangkat, jam, tujuan, harga, id_kendaraan, jml_kursi, diskon)
+$sql = "insert into jadwal_keberangkatan (tgl_berangkat, jam, id_tujuan, id_kendaraan, jml_kursi, diskon)
                 values
-                ('$tanggal', '$jam', '$tujuan', '$harga', '$id_kendaraan', '$jml_kursi', '$diskon')";
+                ('$tanggal', '$jam', '$id_tujuan', '$id_kendaraan', '$jml_kursi', '$diskon')";
 $hasil = mysqli_query($koneksi, $sql);
 
 if (!$hasil) {

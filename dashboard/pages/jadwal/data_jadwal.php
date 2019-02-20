@@ -1,6 +1,8 @@
 <?php
 include "config.php";
-$query = mysqli_query($connection, "select * from jadwal_keberangkatan");
+$query = mysqli_query($connection, "select jadwal_keberangkatan.*, tujuan.*
+from jadwal_keberangkatan join tujuan
+on jadwal_keberangkatan.id_tujuan=tujuan.id_tujuan");
 ?>
 
 <?php
@@ -58,7 +60,7 @@ include '../halo-pelanggan/function/rupiah.php'
                                         <td><?php echo $no ?></td>
                                         <td><font face="trebuchet MS"><?php echo $data["tgl_berangkat"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["jam"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["tujuan"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo $data["nama_tujuan"]; ?></font></td>
 										<td><font face="trebuchet MS"><?php echo rupiah($data["harga"]); ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["jml_kursi"]; ?> Kursi</font></td>
                                         <td>

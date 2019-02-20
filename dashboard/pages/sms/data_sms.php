@@ -1,12 +1,13 @@
 <?php
 include "config.php";
-$query = mysqli_query($connection, "SELECT sms.id_sms, pelanggan.nama_pelanggan, sms.tgl_sms, sms.isi_sms, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, jadwal_keberangkatan.tujuan
+$query = mysqli_query($connection, "SELECT sms.id_sms, pelanggan.nama_pelanggan, sms.tgl_sms, sms.isi_sms, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, tujuan.nama_tujuan
 FROM sms
 JOIN transaksi ON transaksi.id_transaksi = sms.id_transaksi
 JOIN pesan ON pesan.id_pesan = transaksi.id_pesan
 JOIN pelanggan ON pelanggan.id_pelanggan = pesan.id_pelanggan
 JOIN kendaraan ON kendaraan.id_kendaraan = pesan.id_kendaraan
-JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal");
+JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal
+JOIN tujuan ON tujuan.id_tujuan = jadwal_keberangkatan.id_tujuan");
 ?>
 
 <!-- Static Table Start -->
@@ -44,7 +45,7 @@ JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal");
                                         <th data-field="nama_pelanggan">Nama Pelanggan</th>
                                         <th data-field="tgl_berangkat">Tanggal Berangkat</th>
                                         <th data-field="jam">Jam Berangkat</th>
-                                        <th data-field="tujuan">Tujuan</th>
+                                        <th data-field="nama_tujuan">Tujuan</th>
                                         <th data-field="tgl_sms">Tanggal SMS</th>
                                         <th data-field="isi_sms">Isi SMS</th>
                                         <th data-field="aksi">Aksi</th>
@@ -62,7 +63,7 @@ JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal");
                                         <td><font face="trebuchet MS"><?php echo $data["nama_pelanggan"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["tgl_berangkat"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["jam"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["tujuan"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo $data["nama_tujuan"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["tgl_sms"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["isi_sms"]; ?></font></td>
                                         <td>

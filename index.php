@@ -39,8 +39,11 @@ require 'halo-pelanggan/function/indo_date3.php';
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="./"><img src="img/budiman.png" alt="P.O Budiman" width="150" height="150"></a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+                        <a class="navbar-brand" href="./"><img src="img/budiman.png" alt="P.O Budiman" width="150"
+                                height="150"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav"
+                            aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span
+                                class="fa fa-bars"></span></button>
                         <!-- Nav -->
                         <div class="collapse navbar-collapse" id="dorneNav">
                             <ul class="navbar-nav mr-auto" id="dorneMenu">
@@ -50,8 +53,8 @@ require 'halo-pelanggan/function/indo_date3.php';
                                 <li class="nav-item">
                                     <a class="nav-link" href="kontak-kami.php">Kontak Kami</a>
                                 </li>
-								<li class="nav-item">
-                                    <a class="nav-link" href="list-tujuan-bus.php">Daftar Tujuan</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#tujuan">Daftar Tujuan</a>
                                 </li>
                             </ul>
                             <!-- Signin btn -->
@@ -78,74 +81,7 @@ require 'halo-pelanggan/function/indo_date3.php';
                         <h2>Daftar Dan Pesan.</h2>
                         <h4>Daftar dan dapatkan kemudahan dalam memesan bus dari Budiman.</h4>
                     </div>
-                    <!-- Hero Search Form -->
-                    <div class="hero-search-form">
-                        <!-- Tabs -->
-                        <div class="nav nav-tabs" id="heroTab" role="tablist">
-                            <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Tujuan Pergi</a>
-                        </div>
-                        <!-- Tabs Content -->
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-                                <h6>Kemana tujuan Anda?</h6>
-                                <form action="hasil-pencarian.php" method="GET">
-                                    <select class="custom-select" name="tujuan">
-                                        <option value="show-all" selected="selected">= Tujuan =</option>
-                                                <?php
-                                                require_once 'halo-pelanggan/function/pengaturan.php';
-                                                $stmt = $db->prepare('SELECT tujuan FROM jadwal_keberangkatan GROUP BY tujuan');
-                                                $stmt->execute();
-                                                ?>
-                                                <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
-                                                <?php extract($row); ?>
-                                                <option value="<?php echo $row['tujuan']; ?>"><?php echo $row['tujuan']; ?></option>
-                                                <?php endwhile; ?>
-                                    </select>
-                                    <select class="custom-select" name="tgl_berangkat">
-                                        <option value="show-all" selected="selected">= Tanggal =</option>
-                                                <?php
-                                                require_once 'halo-pelanggan/function/pengaturan.php';
-                                                $stmt = $db->prepare('SELECT tgl_berangkat FROM jadwal_keberangkatan GROUP BY tgl_berangkat');
-                                                $stmt->execute();
-                                                ?>
-                                                <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
-                                                <?php extract($row); ?>
-                                                <option value="<?php echo $row['tgl_berangkat']; ?>"><?php echo indonesian_date_only($row['tgl_berangkat']); ?></option>
-                                                <?php endwhile; ?>
-                                    </select>
-                                    <select class="custom-select" name="jam">
-                                        <option value="show-all" selected="selected">= Jam =</option>
-                                                <?php
-                                                require_once 'halo-pelanggan/function/pengaturan.php';
-                                                $stmt = $db->prepare('SELECT jam FROM jadwal_keberangkatan GROUP BY jam');
-                                                $stmt->execute();
-                                                ?>
-                                                <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
-                                                <?php extract($row); ?>
-                                                <option value="<?php echo $row['jam']; ?>"><?php echo indonesian_hour_only($row['jam']); ?></option>
-                                                <?php endwhile; ?>
-                                    </select>
-                                    <select class="custom-select" id="kelas_kendaraan" name="kelas_kendaraan">
-                                        <option value="show-all" selected="selected">= Kelas Kendaraan =</option>
-                                                <?php
-                                                require_once 'halo-pelanggan/function/pengaturan.php';
-                                                $stmt = $db->prepare('SELECT * FROM kendaraan GROUP BY kelas_kendaraan');
-                                                $stmt->execute();
-                                                ?>
-                                                <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
-                                                <?php extract($row); ?>
-                                                <option value="<?php echo $row['kelas_kendaraan']; ?>"><?php echo $row['kelas_kendaraan']; ?></option>
-                                                <?php endwhile; ?>
-                                    </select>
-                            </div>
-                            <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-                                    <p  style="text-align: center">
-                                        <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Cari Bus</button>
-                                    </p>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+
 
                 </div>
             </div>
@@ -209,15 +145,79 @@ require 'halo-pelanggan/function/indo_date3.php';
                 <div class="col-12">
                     <div class="about-content text-center">
                         <h2>Selamat datang di <br><span>P.O Budiman</span></h2>
-                        <p>Dapatkan fitur menarik dari kami hanya dengan mendaftar menjadi pelanggan.<br/>
-						Jika ingin memesan, harap mendaftar menjadi pelanggan P.O Budiman terlebih dahulu.</p><br/>
-						<a href="list-tujuan-bus.php" class="btn btn-success"><i class="fa fa-map" aria-hidden="true"></i> Tujuan Kami</a>
+                        <p>PT.HS BUDIMAN 45 adalah perusahaan yang bergerak dibidang jasa transportasi
+                            angkutan antar kota antar propinsi yang berpusat di Kota Tasikmalaya - Jawa Barat,
+                            Awal PO.BUDIMAN berdiri pada tahun 1992 , seiring dengan perkembangannya perusahaan
+                            bertransformasi menjadi PT.HS.BUDIMAN 45, dengan mengembangkan usaha selain Bus Cepat
+                            Budiman (REGULER) dengan berbagai Kelas Mulai dari Best In Class, Super Executive,
+                            First Class, Executive dan Bisnis Class, PARIWISATA , juga tersedia SHUTTLE BUDIMAN,
+                            dan TAKSI BUDIMAN.
+
+                            <br /><br />Dapatkan fitur menarik dari kami hanya dengan mendaftar menjadi pelanggan.<br />
+                            Jika ingin memesan, harap mendaftar menjadi pelanggan P.O Budiman terlebih dahulu.</p><br />
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- ***** About Area End ***** -->
+
+    <!-- ***** Editor Pick Area Start ***** -->
+    <section class="dorne-editors-pick-area bg-img bg-overlay-9 section-padding-100" id="tujuan"
+        style="background-image: url(img/bekasi.jpeg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <span></span>
+                        <h4>Daftar Kota Tujuan Kami</h4>
+                        <p>Berikut daftar kota tujuan kami. Klik pada salah satu tujuan untuk melihat jadwal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <?php
+                require 'halo-pelanggan/function/kon2.php';
+                $query1 = mysqli_query($kon, "SELECT jadwal_keberangkatan.*, kendaraan.*, tujuan.*, COUNT(nama_tujuan) as jumlah
+                                              FROM jadwal_keberangkatan
+                                                JOIN kendaraan ON jadwal_keberangkatan.id_kendaraan = kendaraan.id_kendaraan
+                                                JOIN tujuan ON jadwal_keberangkatan.id_tujuan = tujuan.id_tujuan
+                                            GROUP BY nama_tujuan
+                ");
+                while ($r = mysqli_fetch_assoc($query1)) {
+                    if ($r > 0){
+            ?>
+                <div class="col-12 col-lg-6">
+                    <div class="single-editors-pick-area wow fadeInUp" data-wow-delay="0.2s">
+                        <a href="jadwalTujuan.php?tujuan=<?= $r['nama_tujuan']; ?>">
+                            <img src="img/bg-img/tujuan-1.jpg" alt="">
+                        </a>
+                        <div class="editors-pick-info">
+                            <div class="places-total-destinations d-flex">
+                                <a
+                                    href="jadwalTujuan.php?tujuan=<?= $r['nama_tujuan']; ?>"><?= $r['nama_tujuan']; ?></a>
+                                <a href="jadwalTujuan.php?tujuan=<?= $r['nama_tujuan']; ?>"><?= $r['jumlah']; ?>
+                                    jadwal</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php }else{ ?>
+                <div class="col-12 col-lg-6">
+                    <div class="single-editors-pick-area wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="editors-pick-info">
+                            <div class="places-total-destinations d-flex">
+                                Tidak Ada Jadwal
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php } } ?>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Editor Pick Area End ***** -->
 
 
     <!-- ****** Footer Area Start ****** -->
@@ -228,8 +228,10 @@ require 'halo-pelanggan/function/indo_date3.php';
                     <div class="footer-text">
                         <p>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> P.O Budiman. All rights reserved.
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>
+                            document.write(new Date().getFullYear());
+                            </script> P.O Budiman. All rights reserved.
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
                 </div>

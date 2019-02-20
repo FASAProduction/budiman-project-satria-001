@@ -1,12 +1,13 @@
 <?php
 include "config.php";
-$query = mysqli_query($connection, "SELECT tiket.id_tiket, pelanggan.nama_pelanggan, pelanggan.alamat, pelanggan.jk, pesan.jml_penumpang, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, jadwal_keberangkatan.tujuan
+$query = mysqli_query($connection, "SELECT tiket.id_tiket, pelanggan.nama_pelanggan, pelanggan.alamat, pelanggan.jk, pesan.jml_penumpang, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, tujuan.nama_tujuan
 FROM tiket
 JOIN transaksi ON transaksi.id_transaksi = tiket.id_transaksi
 JOIN pesan ON pesan.id_pesan = transaksi.id_pesan
 JOIN pelanggan ON pelanggan.id_pelanggan = pesan.id_pelanggan
 JOIN kendaraan ON kendaraan.id_kendaraan = pesan.id_kendaraan
-JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal");
+JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal
+JOIN tujuan ON tujuan.id_tujuan = jadwal_keberangkatan.id_tujuan");
 ?>
 
 <!-- Static Table Start -->
@@ -45,7 +46,7 @@ JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal");
                                         <th data-field="merek_kendaraan">Merek Kendaraan</th>
                                         <th data-field="tgl_berangkat">Tanggal Berangkat</th>
                                         <th data-field="jam">Jam Berangkat</th>
-                                        <th data-field="tujuan">Tujuan</th>
+                                        <th data-field="nama_tujuan">Tujuan</th>
                                         <th data-field="aksi">SMS</th>
                                     </tr>
                                 </thead>
@@ -63,7 +64,7 @@ JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal");
                                         <td><font face="trebuchet MS"><?php echo $data["merek_kendaraan"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["tgl_berangkat"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["jam"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["tujuan"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo $data["nama_tujuan"]; ?></font></td>
                                         <td>
                                             <a href="pages/tiket/modal.php?id_tiket=<?php echo $data['id_tiket']; ?>" data-toggle="modal" data-target="#WarningModalalert" >
                                                 <i class="fa fa-comment edu-checked-pro" aria-hidden="true" style="color: green; font-size: 15px"> KIRIM</i>

@@ -55,17 +55,21 @@ include '../function/rupiah.php';
         <!-- ============================================================== -->
         <!-- navbar -->
         <!-- ============================================================== -->
-       <div class="dashboard-header">
+        <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
                 <a class="navbar-brand" href="./"><img src="../../img/budiman.png" width="100" height="50" /></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
 
                         <li class="nav-item dropdown notification">
-                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span
+                                    class="indicator"></span></a>
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                                 <li>
                                     <div class="notification-title"> Notification</div>
@@ -73,33 +77,48 @@ include '../function/rupiah.php';
                                         <div class="list-group">
                                             <a href="#" class="list-group-item list-group-item-action active">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
+                                                    <div class="notification-list-user-img"><img
+                                                            src="../assets/images/avatar-2.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Jeremy
+                                                            Rakestraw</span>accepted your invitation to join the team.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">
-John Abraham</span>is now following you
+                                                    <div class="notification-list-user-img"><img
+                                                            src="../assets/images/avatar-3.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">
+                                                            John Abraham</span>is now following you
                                                         <div class="notification-date">2 days ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
+                                                    <div class="notification-list-user-img"><img
+                                                            src="../assets/images/avatar-4.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Monaan Pechi</span> is
+                                                        watching your main repository
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
+                                                    <div class="notification-list-user-img"><img
+                                                            src="../assets/images/avatar-5.jpg" alt=""
+                                                            class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span
+                                                            class="notification-list-user-name">Jessica
+                                                            Caruso</span>accepted your invitation to join the team.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
@@ -113,15 +132,22 @@ John Abraham</span>is now following you
                             </ul>
                         </li>
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
-                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                    src="../assets/images/avatar-1.jpg" alt=""
+                                    class="user-avatar-md rounded-circle"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+                                aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name"><?php echo $jekel; ?><?php echo $_SESSION['nama_pelanggan'] ?></h5>
-                                    <span class="status"></span><span class="ml-2"><?php echo $_SESSION['no_telp'] ?></span>
+                                    <h5 class="mb-0 text-white nav-user-name">
+                                        <?php echo $jekel; ?><?php echo $_SESSION['nama_pelanggan'] ?></h5>
+                                    <span class="status"></span><span
+                                        class="ml-2"><?php echo $_SESSION['no_telp'] ?></span>
                                 </div>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Akun Saya</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Pesanan Saya</a>
-                                <a class="dropdown-item" href="../logout.php"><i class="fas fa-power-off mr-2"></i>Keluar</a>
+                                <a class="dropdown-item" href="../logout.php"><i
+                                        class="fas fa-power-off mr-2"></i>Keluar</a>
                             </div>
                         </li>
                     </ul>
@@ -134,7 +160,7 @@ John Abraham</span>is now following you
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
-      <?php include '../function/nav-cart.php' ?>
+        <?php include '../function/nav-cart.php' ?>
         <!-- ============================================================== -->
         <!-- end left sidebar -->
         <!-- ============================================================== -->
@@ -149,7 +175,8 @@ John Abraham</span>is now following you
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Berikut Detail Pesanan Anda,  <?php echo $jekel; ?><?php echo $_SESSION['nama_pelanggan'] ?>.</h2>
+                            <h2 class="pageheader-title">Berikut Detail Pesanan Anda,
+                                <?php echo $jekel; ?><?php echo $_SESSION['nama_pelanggan'] ?>.</h2>
                             <?php
                             require '../function/kon2.php';
                             $query = mysqli_query($kon, "SELECT * FROM pesan where id_pelanggan='$_SESSION[id_pelanggan]'");
@@ -159,7 +186,8 @@ John Abraham</span>is now following you
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Detail Pemesanan</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Detail
+                                                Pemesanan</a></li>
                                     </ol>
                                 </nav>
                             </div>
@@ -172,34 +200,38 @@ John Abraham</span>is now following you
                 <?php
                 require '../function/kon.php';
                 $pelanggan = $_GET['id_pelanggan'];
+                $tujuan = $_GET['tujuan'];
                 $id_jadwal = $_GET['id_jadwal'];
                 $id_kendaraan = $_GET['id_kendaraan'];
                 $total = $_GET['total'];
-                $query = mysqli_query($kon, "SELECT pelanggan.*, jadwal_keberangkatan.*, kendaraan.*
-                                                FROM pelanggan, jadwal_keberangkatan, kendaraan
+                $query = mysqli_query($kon, "SELECT pelanggan.*, jadwal_keberangkatan.*, kendaraan.*, tujuan.*
+                                                FROM pelanggan, jadwal_keberangkatan, kendaraan, tujuan
 													WHERE pelanggan.id_pelanggan = '$pelanggan'
 													AND jadwal_keberangkatan.id_jadwal = '$id_jadwal'
-													AND kendaraan.id_kendaraan ='$id_kendaraan'") or die("Gagal query");
+                                                    AND kendaraan.id_kendaraan ='$id_kendaraan'
+                                                    AND tujuan.nama_tujuan ='$tujuan'") or die("Gagal query");
                 $harga = $_GET['harga'];
                 $harga_kelas = $_GET['harga_kelas'];
                 $jml_penumpang = $_GET['jml_penumpang'];
                 $jumlah = $total * $jml_penumpang;
                 while ($r = mysqli_fetch_assoc($query)) { ?>
                 <div class="row">
-                <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="mb-0">Detail Pesanan</h4>
-                                        </div>
-                                        <div class="card-body">
+                    <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="mb-0">Detail Pesanan</h4>
+                                    </div>
+                                    <div class="card-body">
 
-                                            <form class="needs-validation" novalidate="" action="isi.php" name="invoice" id="invoice" method="POST">
-                        												<input type="hidden" name="id_pelanggan" value="<?php echo $pelanggan; ?>">
-                        												<input type="hidden" name="id_jadwal" value="<?php echo $id_jadwal; ?>">
-                        												<input type="hidden" name="id_kendaraan" value="<?php echo $id_kendaraan; ?>">
-                                                <?php
+                                        <form class="needs-validation" novalidate="" action="isi.php" name="invoice"
+                                            id="invoice" method="POST">
+                                            <input type="hidden" name="id_pelanggan" value="<?php echo $pelanggan; ?>">
+                                            <input type="hidden" name="id_jadwal" value="<?php echo $id_jadwal; ?>">
+                                            <input type="hidden" name="id_kendaraan"
+                                                value="<?php echo $id_kendaraan; ?>">
+                                            <?php
                                                 $kon = new mysqli("localhost", "root", "", "budiman");
                                                 $sql = "SELECT MAX(id_pesan) AS urut FROM pesan";
                                                 $hasil = mysqli_query($kon, $sql);
@@ -209,92 +241,107 @@ John Abraham</span>is now following you
                                                     $nomor++;
                                                     ?>
 
-                                                <input type="hidden" id="id_pesan" name="id_pesan" class="form-control" value="<?php echo $nomor; ?>" />
+                                            <input type="hidden" id="id_pesan" name="id_pesan" class="form-control"
+                                                value="<?php echo $nomor; ?>" />
 
-                                           <?php
+                                            <?php
                                         }
                                         ?>
-                                                <?php
+                                            <?php
                                                 $query = mysqli_query($kon, "SELECT * from pelanggan WHERE id_pelanggan='$pelanggan'");
 
                                                 while ($pelanggan = mysqli_fetch_assoc($query)) {
                                                     ?>
-                                                <div class="mb-3">
-                                                    <label for="firstName">Nama Anda</label>
-                                                    <input type="text" class="form-control" id="firstName" name="nama_pelanggan" value="<?php echo $jekel; ?><?= $r['nama_pelanggan']; ?>" required="" readonly>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="lastName">Alamat</label>
-                                                    <input type="text" class="form-control" id="lastName" name="alamat" value="<?= $r['alamat']; ?>" required="" readonly>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="lastName">No Telepon</label>
-                                                    <input type="text" class="form-control" id="lastName" name="no_telp" value="<?= $r['no_telp']; ?>" required="" readonly>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="lastName">No KTP</label>
-                                                    <input type="text" class="form-control" id="lastName" name="no_ktp" value="<?= $r['no_ktp']; ?>" required="" readonly>
-                                                </div>
-                                                <?php
+                                            <div class="mb-3">
+                                                <label for="firstName">Nama Anda</label>
+                                                <input type="text" class="form-control" id="firstName"
+                                                    name="nama_pelanggan"
+                                                    value="<?php echo $jekel; ?><?= $r['nama_pelanggan']; ?>"
+                                                    required="" readonly>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="lastName">Alamat</label>
+                                                <input type="text" class="form-control" id="lastName" name="alamat"
+                                                    value="<?= $r['alamat']; ?>" required="" readonly>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="lastName">No Telepon</label>
+                                                <input type="text" class="form-control" id="lastName" name="no_telp"
+                                                    value="<?= $r['no_telp']; ?>" required="" readonly>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="lastName">No KTP</label>
+                                                <input type="text" class="form-control" id="lastName" name="no_ktp"
+                                                    value="<?= $r['no_ktp']; ?>" required="" readonly>
+                                            </div>
+                                            <?php
                                             } ?>
-                                                <div class="mb-3">
-                                                    <label for="lastName">Jumlah Penumpang</label>
-                                                    <input type="number" class="form-control" id="jml_penumpang" name="jml_penumpang" min=1 oninput="validity.valid||(value='');" required onfocus="startCalculate()" onblur="stopCalc()">
-                                                    <input type="hidden" class="form-control" id="total" name="total" value="<?php echo $total; ?>">
-                                                </div>
-                                                <hr class="mb-4">
-                                                <input type="hidden" class="form-control" name="kursi" value="<?= $r['jml_kursi']; ?>">
-                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Checkout Sekarang</button>
-                                            </form>
+                                            <div class="mb-3">
+                                                <label for="lastName">Jumlah Penumpang</label>
+                                                <input type="number" class="form-control" id="jml_penumpang"
+                                                    name="jml_penumpang" min=1 oninput="validity.valid||(value='');"
+                                                    required onfocus="startCalculate()" onblur="stopCalc()">
+                                                <input type="hidden" class="form-control" id="total" name="total"
+                                                    value="<?php echo $total; ?>">
+                                            </div>
+                                            <hr class="mb-4">
+                                            <input type="hidden" class="form-control" name="kursi"
+                                                value="<?= $r['jml_kursi']; ?>">
+                                            <button class="btn btn-primary btn-lg btn-block" type="submit">Checkout
+                                                Sekarang</button>
+                                        </form>
 
-                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="d-flex justify-content-between align-items-center mb-0">
-                                                        <span class="text-muted">Pesanan Anda</span>
-                                                 </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <ul class="list-group mb-3">
-                                                <li class="list-group-item d-flex justify-content-between">
-                                                    <div>
-                                                        <h6 class="my-0">Tujuan</h6>
-                                                        <small class="text-muted">Yogyakarta - <?= $r['tujuan']; ?></small>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between">
-                                                    <div>
-                                                        <h6 class="my-0">Tgl Berangkat</h6>
-                                                        <small class="text-muted"><?= indonesian_date_only($r['tgl_berangkat']); ?></small>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between">
-                                                    <div>
-                                                        <h6 class="my-0">Jam Berangkat</h6>
-                                                        <small class="text-muted"><?= indonesian_hour_only($r['jam']); ?></small>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between">
-                                                    <div>
-                                                        <h6 class="my-0">Kursi Tersedia</h6>
-                                                        <small class="text-muted"><?= $r['jml_kursi']; ?> Kursi</small>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between">
-                                                    <span>Total (IDR)</span>
-                                                    <strong><span id="bayar"></span></strong>
-                                                </li>
-                                            </ul>
-                                        </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="d-flex justify-content-between align-items-center mb-0">
+                                            <span class="text-muted">Pesanan Anda</span>
+                                        </h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-group mb-3">
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <div>
+                                                    <h6 class="my-0">Tujuan</h6>
+                                                    <small class="text-muted">Yogyakarta -
+                                                        <?= $r['nama_tujuan']; ?></small>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <div>
+                                                    <h6 class="my-0">Tgl Berangkat</h6>
+                                                    <small
+                                                        class="text-muted"><?= indonesian_date_only($r['tgl_berangkat']); ?></small>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <div>
+                                                    <h6 class="my-0">Jam Berangkat</h6>
+                                                    <small
+                                                        class="text-muted"><?= indonesian_hour_only($r['jam']); ?></small>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <div>
+                                                    <h6 class="my-0">Kursi Tersedia</h6>
+                                                    <small class="text-muted"><?= $r['jml_kursi']; ?> Kursi</small>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <span>Total (IDR)</span>
+                                                <strong><span id="bayar"></span></strong>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
-				<?php
+                <?php
 } ?>
             </div>
             <!-- ============================================================== -->
@@ -315,32 +362,32 @@ John Abraham</span>is now following you
     <script src="../assets/libs/js/main-js.js"></script>
     <script type="text/javascript">
     // Select your input element.
-var numInput = document.querySelector('input');
+    var numInput = document.querySelector('input');
 
-// Listen for input event on numInput.
-numInput.addEventListener('input', function(){
-    // Let's match only digits.
-    var num = this.value.match(/^\d+$/);
-    if (num === null) {
-        // If we have no match, value will be empty.
-        this.value = "";
-    }
-}, false)
-</script>
+    // Listen for input event on numInput.
+    numInput.addEventListener('input', function() {
+        // Let's match only digits.
+        var num = this.value.match(/^\d+$/);
+        if (num === null) {
+            // If we have no match, value will be empty.
+            this.value = "";
+        }
+    }, false)
+    </script>
     <script type="text/javascript">
-        function startCalculate(){
-        interval=setInterval("Calculate()",10);
-        }
+    function startCalculate() {
+        interval = setInterval("Calculate()", 10);
+    }
 
-        function Calculate(){
-        var jml_penumpang=document.invoice.jml_penumpang.value;
-        var total=document.invoice.total.value;
+    function Calculate() {
+        var jml_penumpang = document.invoice.jml_penumpang.value;
+        var total = document.invoice.total.value;
         document.getElementById("bayar").innerHTML = jml_penumpang * total;
-        }
+    }
 
-        function stopCalc(){
+    function stopCalc() {
         clearInterval(interval);
-        }
+    }
     </script>
 </body>
 

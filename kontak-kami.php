@@ -46,7 +46,7 @@
                                     <a class="nav-link" href="kontak-kami.php">Kontak Kami <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="list-tujuan-bus.php">Daftar Tujuan</a>
+                                    <a class="nav-link" href="./#tujuan">Daftar Tujuan</a>
                                 </li>
                             </ul>
                             <!-- Signin btn -->
@@ -81,6 +81,7 @@
                         <h6><i class="fa fa-map-signs" aria-hidden="true"></i> Jl. Imogiri Timur No.206, Giwangan, Umbulharjo</h6>
                         <h6><i class="fa fa-map-signs" aria-hidden="true"></i> Kota Yogyakarta, Daerah Istimewa Yogyakarta</h6>
                         <h6><i class="fa fa-map-signs" aria-hidden="true"></i> 55163</h6>
+                        <h6><i class="fa fa-envelope" aria-hidden="true"></i> care@busbudiman.com</h6>
                     </div>
                     <div class="single-contact-info">
                         <h6><i class="fa fa-phone" aria-hidden="true"></i> (0274) 381250</h6>

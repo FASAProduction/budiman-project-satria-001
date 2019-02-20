@@ -51,7 +51,7 @@
                                                         <div class="form-select-list">
                                                             <select class="form-control custom-select-value" name="kelas">
                                                               <option value="">- Pilih Kelas -</option>
-                                                              <option value="First Class">First Class</option>
+                                                              <option value="Bisnis">Bisnis</option>
                                                               <option value="Executive">Executive</option>
                                                             </select>
                                                         </div>

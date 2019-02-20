@@ -20,6 +20,9 @@
                         <a title="Jadwal Berangkat" href="?act=data_jadwal" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Jadwal Berangkat</span></a>
                     </li>
                     <li>
+                        <a title="Tujuan" href="?act=data_tujuan" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Tujuan</span></a>
+                    </li>
+                    <li>
                         <a title="Pesan" href="?act=data_pesan" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Pesan</span></a>
                     </li>
                     <li>

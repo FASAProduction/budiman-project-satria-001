@@ -1,45 +1,50 @@
 <?php
 require '../function/kon.php';
-$jam = $_GET['jam'];
 $tgl_berangkat = $_GET['tgl_berangkat'];
 $tujuan = $_GET['tujuan'];
 $pelanggan = $_SESSION['id_pelanggan'];
-$kelas_kendaraan = $_GET['kelas_kendaraan'];
-$sql = "SELECT kendaraan.*, jadwal_keberangkatan.*, SUM(harga+harga_kelas) AS total
-                             FROM jadwal_keberangkatan,kendaraan
-                             WHERE tgl_berangkat='$tgl_berangkat' AND kelas_kendaraan='$kelas_kendaraan' AND jam='$jam' AND tujuan='$tujuan'";
+$sql = "SELECT *, nama_tujuan, merek_kendaraan, nomor_kendaraan, kelas_kendaraan
+        FROM `jadwal_keberangkatan`, kendaraan, tujuan
+        WHERE jadwal_keberangkatan.id_tujuan=tujuan.id_tujuan
+            AND kendaraan.id_kendaraan=jadwal_keberangkatan.id_kendaraan
+            AND jadwal_keberangkatan.id_tujuan = '$tujuan'
+            AND tgl_berangkat = '$tgl_berangkat'";
 $query2 = mysqli_query($kon, $sql) or die("Gagal query");
 $data = mysqli_num_rows($query2);
 if ($data > 0) {
-  $query = mysqli_query($kon, "SELECT kendaraan.*, jadwal_keberangkatan.*, SUM(harga+harga_kelas) AS total
-                               FROM jadwal_keberangkatan,kendaraan
-                               WHERE tgl_berangkat='$tgl_berangkat' AND kelas_kendaraan='$kelas_kendaraan' AND jam='$jam' AND tujuan='$tujuan'") or die("Gagal query");
+  $query = mysqli_query($kon, "SELECT *, nama_tujuan, merek_kendaraan, harga, harga_kelas, nomor_kendaraan, kelas_kendaraan
+                               FROM `jadwal_keberangkatan`, kendaraan, tujuan
+                               WHERE jadwal_keberangkatan.id_tujuan=tujuan.id_tujuan
+                                    AND kendaraan.id_kendaraan=jadwal_keberangkatan.id_kendaraan
+                                    AND jadwal_keberangkatan.id_tujuan = '$tujuan'
+                                    AND tgl_berangkat = '$tgl_berangkat'") or die("Gagal query");
   while ($r = mysqli_fetch_assoc($query)) {
+      $bayar = $r['harga'] + $r['harga_kelas'];
     if($r['merek_kendaraan'] != null){
           ?>
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
     <div class="card">
         <div class="card-header d-flex">
-            <h4 class="mb-0">Tujuan: <?= $r['tujuan']; ?></h4>
+            <h4 class="mb-0">Tujuan: <?= $r['nama_tujuan']; ?></h4>
 
         </div>
         <div class="card-body">
             <p class="card-text">
-            Tanggal Berangkat: <?= $r['tgl_berangkat']; ?><br/>
-            Jam Berangkat: <?= $r['jam']; ?><br/>
-            Merek Kendaraan: <?= $r['merek_kendaraan']; ?><br/>
-            Nomor Kendaraan: <?= $r['nomor_kendaraan']; ?><br/>
-            Kelas: <?= $r['kelas_kendaraan']; ?>
+                Tanggal Berangkat: <b><?= $r['tgl_berangkat']; ?></b><br />
+                Jam Berangkat: <b><?= $r['jam']; ?></b><br />
+                Merek Kendaraan: <b><?= $r['merek_kendaraan']; ?></b><br />
+                Nomor Kendaraan: <b><?= $r['nomor_kendaraan']; ?></b><br />
+                Kelas: <b><?= $r['kelas_kendaraan']; ?></b>
             </p>
             <button class="btn btn-primary">
-                <?= rupiah($r['total']); ?>
+                <?= rupiah($bayar); ?>
             </button>
             <a href="../cart/index.php?id_jadwal=<?= $r['id_jadwal']; ?>
                     &&id_kendaraan=<?= $r['id_kendaraan']; ?>
-                    &&tujuan=<?= $r['tujuan']; ?>
+                    &&tujuan=<?= $r['nama_tujuan']; ?>
                     &&id_pelanggan=<?= $pelanggan; ?>
-                    &&total=<?= $r['total']; ?>"
-            class="btn btn-success">Pesan</a>
+                    &&total=<?= $bayar ?>"
+                class="btn btn-success">Pesan</a>
         </div>
     </div>
 </div>

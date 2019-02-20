@@ -41,23 +41,19 @@
                                                     </div>
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <div class="form-select-list">
-                                                            <select class="form-control custom-select-value" name="tujuan">
-                                                              <option value="">- Pilih Tujuan -</option>
-                                                              <option value="Tasikmalaya">Tasikmalaya</option>
-                                                              <option value="Jakarta">Jakarta</option>
-                                                              <option value="Bogor">Bogor</option>
+                                                            <select class="form-control custom-select-value" name="id_tujuan">
+                                                            <option value="show-all" selected="selected">Pilih Tujuan</option>
+                                                                <?php
+                                                                require_once '../halo-pelanggan/function/pengaturan.php';
+                                                                $stmt = $db->prepare('SELECT * FROM tujuan');
+                                                                $stmt->execute();
+                                                                ?>
+                                                                <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+                                                                <?php extract($row); ?>
+                                                                <option value="<?php echo $row['id_tujuan']; ?>"><?php echo $row['nama_tujuan']; ?></option>
+                                                                <?php endwhile; ?>
                                                             </select>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group-inner">
-                                                <div class="row">
-                                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Harga</label>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <input type="text" name="harga" class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,7 +73,7 @@
                                                                 ?>
                                                                 <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
                                                                 <?php extract($row); ?>
-                                                                <option value="<?php echo $row['id_kendaraan']; ?>"><?php echo $row['merek_kendaraan']; ?> - <?php echo $row['nomor_kendaraan']; ?></option>
+                                                                <option value="<?php echo $row['id_kendaraan']; ?>"><?php echo $row['merek_kendaraan']; ?> - <?php echo $row['nomor_kendaraan']; ?> - <?php echo $row['kelas_kendaraan']; ?></option>
                                                                 <?php endwhile; ?>
                                                             </select>
                                                         </div>

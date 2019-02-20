@@ -1,11 +1,12 @@
 <?php
 include "config.php";
-$query = mysqli_query($connection, "SELECT pelanggan.nama_pelanggan, pesan.jml_penumpang, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, jadwal_keberangkatan.tujuan, transaksi.foto
+$query = mysqli_query($connection, "SELECT pelanggan.nama_pelanggan, pesan.jml_penumpang, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, tujuan.nama_tujuan, transaksi.foto
 FROM transaksi
 JOIN pesan ON pesan.id_pesan = transaksi.id_pesan
 JOIN pelanggan ON pelanggan.id_pelanggan = pesan.id_pelanggan
 JOIN kendaraan ON kendaraan.id_kendaraan = pesan.id_kendaraan
-JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal order by id_transaksi desc");
+JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal
+JOIN tujuan ON jadwal_keberangkatan.id_tujuan = tujuan.id_tujuan order by id_transaksi desc");
 ?>
 
 <?php
@@ -74,11 +75,12 @@ JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal or
                                         <td><font face="trebuchet MS"><?php echo $data["tgl_transaksi"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["merek_kendaraan"]; ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["tgl_berangkat"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["tujuan"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo $data["nama_tujuan"]; ?></font></td>
                                         <td>
                                         <?php    
                                         if ($data["foto"] == null) {
                                             echo "<button type='button' class='btn btn-custon-rounded-three btn-warning'>Belum Upload Bukti Bayar</button>";
+											echo "auto_delete.php";
                                         }else{
                                             echo "<a href='img/foto_upload_transaksi/$data[foto]' class='MagicZoom' rel='zoom-id:zoom;opacity-reverese:true;'><img src='img/foto_upload_transaksi/$data[foto]' style='width: 32px; height: 32px;' />";
                                         }

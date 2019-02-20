@@ -31,6 +31,19 @@ if (!isset($_SESSION['no_telp'])) {
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "34aafe60-f115-45ad-ac7f-22df2e9f9cd5",
+      autoRegister: false,
+      notifyButton: {
+        enable: true,
+      },
+    });
+  });
+</script>
 </head>
 
 <body>
@@ -216,15 +229,16 @@ John Abraham</span>is now following you
                                     <ul class="list-group list-group-flush">
                                     <?php
                                     require 'function/kon.php';
-                                    $query = mysqli_query($kon, "SELECT transaksi.id_transaksi, transaksi.id_pesan, transaksi.foto, pesan.jml_penumpang, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, jadwal_keberangkatan.tujuan
+                                    $query = mysqli_query($kon, "SELECT transaksi.id_transaksi, transaksi.id_pesan, transaksi.foto, pesan.jml_penumpang, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, tujuan.nama_tujuan
                                     FROM transaksi
                                     JOIN pesan ON pesan.id_pesan = transaksi.id_pesan
                                     JOIN pelanggan ON pelanggan.id_pelanggan = pesan.id_pelanggan
                                     JOIN kendaraan ON kendaraan.id_kendaraan = pesan.id_kendaraan
                                     JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal
+                                    JOIN tujuan ON jadwal_keberangkatan.id_tujuan = tujuan.id_tujuan
                                     where pesan.id_pelanggan='$_SESSION[id_pelanggan]' order by id_transaksi desc") or die("Gagal query");
                                     while ($r = mysqli_fetch_assoc($query)) { ?>
-                                        <li class="list-group-item"><?= $r['id_transaksi']; ?> - <?= $r['tujuan']; ?></li>
+                                        <li class="list-group-item"><?= $r['id_transaksi']; ?> - <?= $r['nama_tujuan']; ?></li>
                                     <?php 
                                 } ?>
                                     </ul>

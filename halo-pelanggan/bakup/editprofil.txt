@@ -1,0 +1,15 @@
+<h5 class="card-header">Edit Profil Anda <small><i>(Anda harus logout dan login terlebih dahulu untuk melihat perubahan.)</i></small></h5>
+                                            <div class="card-body">
+                                                <?php
+                                                $kon = new mysqli("localhost", "root", "", "budiman");
+
+                                                $id_pelanggan = $_SESSION['id_pelanggan'];
+                                                
+                                                $query = mysqli_query($kon, "select * from pelanggan where id_pelanggan='$id_pelanggan'") or die(mysqli_error());
+                                                
+                                                $data = mysqli_fetch_array($query);
+                                                
+                                                $jk = $data['jk'];
+                                                ?>
+                                                <?php include 'edit-profil.php' ?>
+                                            </div>

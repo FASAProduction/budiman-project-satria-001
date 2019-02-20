@@ -197,12 +197,13 @@ date_default_timezone_set('Asia/Jakarta');
                                         </div>
 										<?php
                                     require 'function/kon.php';
-                                    $query = mysqli_query($kon, "SELECT transaksi.id_transaksi, transaksi.id_pesan, transaksi.foto, pesan.jml_penumpang, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, jadwal_keberangkatan.tujuan
+                                    $query = mysqli_query($kon, "SELECT transaksi.id_transaksi, transaksi.id_pesan, transaksi.foto, pesan.jml_penumpang, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, tujuan.nama_tujuan
                                     FROM transaksi
                                     JOIN pesan ON pesan.id_pesan = transaksi.id_pesan
                                     JOIN pelanggan ON pelanggan.id_pelanggan = pesan.id_pelanggan
                                     JOIN kendaraan ON kendaraan.id_kendaraan = pesan.id_kendaraan
                                     JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal
+                                    JOIN tujuan ON jadwal_keberangkatan.id_tujuan = tujuan.id_tujuan
                                     where pesan.id_pelanggan='$_SESSION[id_pelanggan]' order by id_transaksi desc") or die("Gagal query");
                                     while ($r = mysqli_fetch_assoc($query)) { 
 									if ($r > 0) { ?>
@@ -216,7 +217,7 @@ date_default_timezone_set('Asia/Jakarta');
                                                             </div>
                                                             <div class="media-body ">
                                                                 <div class="influencer-profile-data">
-                                                                    <h3 class="m-b-10"><?= $r['id_transaksi']; ?> - <?= $r['tujuan']; ?></h3>
+                                                                    <h3 class="m-b-10"><?= $r['id_transaksi']; ?> - <?= $r['nama_tujuan']; ?></h3>
                                                                     <p>
                                                                         <span class="m-r-20 d-inline-block">Tanggal Pesan:
                                                                             <span class="m-l-10 text-primary"><?= indonesian_date($r['tgl_transaksi']); ?> (<?= time_since(strtotime($r['tgl_transaksi'])); ?>)</span>
@@ -271,13 +272,14 @@ date_default_timezone_set('Asia/Jakarta');
                                             <h5 class="card-header">SMS dari P.O Budiman untuk Anda</h5>
 											<?php
                                     require 'function/kon.php';
-                                    $query = mysqli_query($kon, "SELECT transaksi.id_transaksi, transaksi.id_pesan, transaksi.foto, pesan.jml_penumpang, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, jadwal_keberangkatan.tujuan, sms.*
+                                    $query = mysqli_query($kon, "SELECT transaksi.id_transaksi, transaksi.id_pesan, transaksi.foto, pesan.jml_penumpang, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, tujuan.nama_tujuan, sms.*
                                     FROM sms
                                     JOIN transaksi ON sms.id_transaksi = transaksi.id_transaksi
 									JOIN pesan ON transaksi.id_pesan = pesan.id_pesan
 									JOIN pelanggan ON pesan.id_pelanggan = pelanggan.id_pelanggan
 									JOIN jadwal_keberangkatan ON pesan.id_jadwal = jadwal_keberangkatan.id_jadwal
 									JOIN kendaraan ON pesan.id_kendaraan = kendaraan.id_kendaraan
+                                    JOIN tujuan ON jadwal_keberangkatan.id_tujuan = tujuan.id_tujuan
                                     where pesan.id_pelanggan='$_SESSION[id_pelanggan]' order by id_sms desc") or die("Gagal query");
                                     while ($r = mysqli_fetch_assoc($query)) { 
 									if ($r > 0) { ?>
@@ -296,21 +298,7 @@ date_default_timezone_set('Asia/Jakarta');
                                     </div>
                                     <div class="tab-pane fade" id="pills-edit" role="tabpanel" aria-labelledby="pills-edit-tab">
                                         <div class="card">
-                                            <h5 class="card-header">Edit Profil Anda <small><i>(Anda harus logout dan login terlebih dahulu untuk melihat perubahan.)</i></small></h5>
-                                            <div class="card-body">
-                                                <?php
-                                                $kon = new mysqli("localhost", "root", "", "budiman");
-
-                                                $id_pelanggan = $_SESSION['id_pelanggan'];
-                                                
-                                                $query = mysqli_query($kon, "select * from pelanggan where id_pelanggan='$id_pelanggan'") or die(mysqli_error());
-                                                
-                                                $data = mysqli_fetch_array($query);
-                                                
-                                                $jk = $data['jk'];
-                                                ?>
-                                                <?php include 'edit-profil.php' ?>
-                                            </div>
+                                            <h5 class="card-header">Akan Segera Datang!</h5>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="pills-saran" role="tabpanel" aria-labelledby="pills-saran-tab">

@@ -48,6 +48,17 @@ if (empty($_GET['act'])) {
             include('pages/jadwal/edit_jadwal.php');
             break;
 
+            //tujuan
+        case ('data_tujuan'):
+            include('pages/tujuan/data_tujuan.php');
+            break;
+        case ('tambah_tujuan'):
+            include('pages/tujuan/tambah_tujuan.php');
+            break;
+        case ('edit_tujuan'):
+            include('pages/tujuan/edit_tujuan.php');
+            break;
+
             //pesan
         case ('data_pesan'):
             include('pages/pesan/data_pesan.php');

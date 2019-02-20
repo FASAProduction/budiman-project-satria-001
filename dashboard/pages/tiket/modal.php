@@ -5,13 +5,14 @@ $id_tiket = $_GET['id_tiket'];
 
 $query = mysqli_query(
     $connection,
-    "SELECT tiket.id_tiket, tiket.id_transaksi, pelanggan.nama_pelanggan, pelanggan.no_telp, pelanggan.alamat, pelanggan.jk, pesan.jml_penumpang, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, jadwal_keberangkatan.tujuan
+    "SELECT tiket.id_tiket, tiket.id_transaksi, pelanggan.nama_pelanggan, pelanggan.no_telp, pelanggan.alamat, pelanggan.jk, pesan.jml_penumpang, transaksi.tgl_transaksi, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, tujuan.nama_tujuan
 FROM tiket
     JOIN transaksi ON transaksi.id_transaksi = tiket.id_transaksi
     JOIN pesan ON pesan.id_pesan = transaksi.id_pesan
     JOIN pelanggan ON pelanggan.id_pelanggan = pesan.id_pelanggan
     JOIN kendaraan ON kendaraan.id_kendaraan = pesan.id_kendaraan
     JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal
+    JOIN tujuan ON jadwal_keberangkatan.id_tujuan = tujuan.id_tujuan
 WHERE tiket.id_tiket='$id_tiket'"
 );
 $data = mysqli_fetch_array($query);
@@ -102,7 +103,7 @@ $data = mysqli_fetch_array($query);
                         <label class="login2 pull-right pull-right-pro">Tujuan</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="tujuan" class="form-control" value="<?php echo $data["tujuan"]; ?>" readonly />
+                        <input type="text" name="tujuan" class="form-control" value="<?php echo $data["nama_tujuan"]; ?>" readonly />
                     </div>
                 </div>
             </div>

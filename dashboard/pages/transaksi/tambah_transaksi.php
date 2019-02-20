@@ -37,10 +37,11 @@
                                                             $kon = new mysqli("localhost", "root", "", "budiman");
                                                             $sql = "SELECT pelanggan.id_pelanggan, pelanggan.nama_pelanggan, pelanggan.jk, pelanggan.no_ktp, pelanggan.alamat, pesan.jml_penumpang, 
                                                                            pesan.id_pesan, pesan.tgl_pesan, kendaraan.id_kendaraan, kendaraan.merek_kendaraan, kendaraan.kelas_kendaraan, kendaraan.harga_kelas, 
-                                                                           jadwal_keberangkatan.id_jadwal, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, jadwal_keberangkatan.tujuan 
+                                                                           jadwal_keberangkatan.id_jadwal, jadwal_keberangkatan.tgl_berangkat, jadwal_keberangkatan.jam, tujuan.nama_tujuan 
                                                                     FROM pesan
                                                                         JOIN pelanggan ON pelanggan.id_pelanggan = pesan.id_pelanggan
                                                                         JOIN kendaraan ON kendaraan.id_kendaraan = pesan.id_kendaraan
+																		JOIN tujuan
                                                                         JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal";
                                                             $hasil = mysqli_query($kon, $sql);
                                                             $jsArray = "var dt_pesan = new Array();\n";
@@ -58,7 +59,7 @@
                                                                     harga_kelas:'" . addslashes($pesan['harga_kelas']) . "',
                                                                     tgl_berangkat:'" . addslashes($pesan['tgl_berangkat']) . "',
                                                                     jam:'" . addslashes($pesan['jam']) . "',
-                                                                    tujuan:'" . addslashes($pesan['tujuan']) . "'
+                                                                    tujuan:'" . addslashes($pesan['nama_tujuan']) . "'
                                                                 };\n";
                                                             }
                                                             ?>
