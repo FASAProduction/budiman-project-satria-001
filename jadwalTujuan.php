@@ -139,7 +139,7 @@ while ($r = mysqli_fetch_assoc($query)) {
                                     Jumlah Kursi: <b><?= $r['jml_kursi']; ?> Kursi tersedia</b><br />
 
                                     <div class="feature-favourite">
-                                        <a href=""><?php echo rupiah($bayar); ?></a>
+                                        <a href=""><?php echo rupiah($bayar); ?></a> / Orang
                                     </div>
 
                             </div>

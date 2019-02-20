@@ -58,7 +58,7 @@ $data = mysqli_fetch_array($query);
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <div class="form-select-list">
                                                             <select class="form-control custom-select-value" name="id_tujuan">
-                                                              <option value="<?php echo $data['nama_tujuan']; ?>"><?php echo $data['nama_tujuan']; ?> (current)</option>
+                                                              <option value="<?php echo $data['id_tujuan']; ?>"><?php echo $data['nama_tujuan']; ?> (current)</option>
                                                               <?php
                                                                 require_once '../halo-pelanggan/function/pengaturan.php';
 																$menuju = $data['nama_tujuan'];
