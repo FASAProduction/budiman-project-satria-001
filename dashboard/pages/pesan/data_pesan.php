@@ -7,6 +7,10 @@ JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal
 JOIN tujuan ON tujuan.id_tujuan = jadwal_keberangkatan.id_tujuan");
 ?>
 
+<?php
+include '../halo-pelanggan/function/indo_date.php';
+include '../halo-pelanggan/function/indo_date2.php';
+?>
 
 
 <!-- Static Table Start -->
@@ -58,9 +62,9 @@ JOIN tujuan ON tujuan.id_tujuan = jadwal_keberangkatan.id_tujuan");
                                         <!-- <td></td> -->
                                         <td><?php echo $no ?></td>
                                         <td><font face="trebuchet MS"><?php echo $data["nama_pelanggan"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["tgl_pesan"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo indonesian_date($data["tgl_pesan"]); ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["merek_kendaraan"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["tgl_berangkat"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo indonesian_date_only($data["tgl_berangkat"]); ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["nama_tujuan"]; ?></font></td>
                                         
                                     </tr>

@@ -6,7 +6,9 @@ on jadwal_keberangkatan.id_tujuan=tujuan.id_tujuan");
 ?>
 
 <?php
-include '../halo-pelanggan/function/rupiah.php'
+include '../halo-pelanggan/function/rupiah.php';
+include '../halo-pelanggan/function/indo_date2.php';
+include '../halo-pelanggan/function/indo_date3.php';
 ?>
 
 <!-- Static Table Start -->
@@ -58,8 +60,8 @@ include '../halo-pelanggan/function/rupiah.php'
                                     <tr>
                                         <!-- <td></td> -->
                                         <td><?php echo $no ?></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["tgl_berangkat"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["jam"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo indonesian_date_only($data["tgl_berangkat"]); ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo indonesian_hour_only($data["jam"]); ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["nama_tujuan"]; ?></font></td>
 										<td><font face="trebuchet MS"><?php echo rupiah($data["harga"]); ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["jml_kursi"]; ?> Kursi</font></td>

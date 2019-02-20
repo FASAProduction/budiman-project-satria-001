@@ -10,7 +10,8 @@ JOIN tujuan ON jadwal_keberangkatan.id_tujuan = tujuan.id_tujuan order by id_tra
 ?>
 
 <?php
-
+include '../halo-pelanggan/function/indo_date.php';
+include '../halo-pelanggan/function/indo_date2.php';
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -72,15 +73,15 @@ JOIN tujuan ON jadwal_keberangkatan.id_tujuan = tujuan.id_tujuan order by id_tra
                                         <!-- <td></td> -->
                                         <td><?php echo $no ?></td>
                                         <td><font face="trebuchet MS"><?php echo $data["nama_pelanggan"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["tgl_transaksi"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo indonesian_date($data["tgl_transaksi"]); ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["merek_kendaraan"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["tgl_berangkat"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo indonesian_date_only($data["tgl_berangkat"]); ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["nama_tujuan"]; ?></font></td>
                                         <td>
                                         <?php    
                                         if ($data["foto"] == null) {
                                             echo "<button type='button' class='btn btn-custon-rounded-three btn-warning'>Belum Upload Bukti Bayar</button>";
-											echo "auto_delete.php";
+											include 'auto_delete.php';
                                         }else{
                                             echo "<a href='img/foto_upload_transaksi/$data[foto]' class='MagicZoom' rel='zoom-id:zoom;opacity-reverese:true;'><img src='img/foto_upload_transaksi/$data[foto]' style='width: 32px; height: 32px;' />";
                                         }

@@ -3,7 +3,11 @@ $kon = new mysqli("localhost", "root", "", "budiman");
 
 $id_jadwal = $_GET['id_jadwal'];
 
-$query = mysqli_query($kon, "select * from jadwal_keberangkatan where jadwal_keberangkatan.id_jadwal='$id_jadwal'") or die(mysqli_error());
+$query = mysqli_query($kon, "select jadwal_keberangkatan.*, tujuan.*, kendaraan.*
+from jadwal_keberangkatan
+JOIN tujuan on tujuan.id_tujuan = jadwal_keberangkatan.id_tujuan
+JOIN kendaraan on jadwal_keberangkatan.id_kendaraan = kendaraan.id_kendaraan
+where jadwal_keberangkatan.id_jadwal='$id_jadwal'") or die(mysqli_error());
 
 $data = mysqli_fetch_array($query);
 
@@ -53,11 +57,18 @@ $data = mysqli_fetch_array($query);
                                                     </div>
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <div class="form-select-list">
-                                                            <select class="form-control custom-select-value" name="tujuan">
-                                                              <option value="<?php echo $data['tujuan']; ?>"><?php echo $data['tujuan']; ?></option>
-                                                              <option value="Tasikmalaya">Tasikmalaya</option>
-                                                              <option value="Jakarta">Jakarta</option>
-                                                              <option value="Bogor">Bogor</option>
+                                                            <select class="form-control custom-select-value" name="id_tujuan">
+                                                              <option value="<?php echo $data['nama_tujuan']; ?>"><?php echo $data['nama_tujuan']; ?> (current)</option>
+                                                              <?php
+                                                                require_once '../halo-pelanggan/function/pengaturan.php';
+																$menuju = $data['nama_tujuan'];
+                                                                $stmt = $db->prepare("SELECT * FROM tujuan");
+                                                                $stmt->execute();
+                                                                ?>
+                                                                <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+                                                                <?php extract($row); ?>
+                                                                <option value="<?php echo $row['id_tujuan']; ?>"><?php echo $row['nama_tujuan']; ?></option>
+                                                                <?php endwhile; ?>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -66,10 +77,23 @@ $data = mysqli_fetch_array($query);
 											<div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Harga</label>
+                                                        <label class="login2 pull-right pull-right-pro">Kendaraan</label>
                                                     </div>
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <input type="text" name="harga" class="form-control" value="<?php echo $data['harga']; ?>" />
+                                                        <div class="form-select-list">
+                                                            <select class="form-control custom-select-value" name="id_kendaraan">
+                                                            <option value="<?php echo $data['id_kendaraan']; ?>"><?php echo $data['merek_kendaraan']; ?> - <?php echo $data['nomor_kendaraan']; ?> - <?php echo $data['kelas_kendaraan']; ?> (current)</option>
+                                                                <?php
+                                                                require_once '../halo-pelanggan/function/pengaturan.php';
+                                                                $stmt = $db->prepare('SELECT * FROM kendaraan');
+                                                                $stmt->execute();
+                                                                ?>
+                                                                <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+                                                                <?php extract($row); ?>
+                                                                <option value="<?php echo $row['id_kendaraan']; ?>"><?php echo $row['merek_kendaraan']; ?> - <?php echo $row['nomor_kendaraan']; ?> - <?php echo $row['kelas_kendaraan']; ?></option>
+                                                                <?php endwhile; ?>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

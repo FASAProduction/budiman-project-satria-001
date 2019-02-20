@@ -10,6 +10,12 @@ JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal
 JOIN tujuan ON tujuan.id_tujuan = jadwal_keberangkatan.id_tujuan");
 ?>
 
+<?php
+include '../halo-pelanggan/function/indo_date.php';
+include '../halo-pelanggan/function/indo_date2.php';
+include '../halo-pelanggan/function/indo_date3.php';
+?>
+
 <!-- Static Table Start -->
 <div class="data-table-area mg-b-15">
     <div class="container-fluid">
@@ -60,10 +66,10 @@ JOIN tujuan ON tujuan.id_tujuan = jadwal_keberangkatan.id_tujuan");
                                         <!-- <td></td> -->
                                         <td><?php echo $no ?></td>
                                         <td><font face="trebuchet MS"><?php echo $data["nama_pelanggan"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["tgl_transaksi"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo indonesian_date($data["tgl_transaksi"]); ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["merek_kendaraan"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["tgl_berangkat"]; ?></font></td>
-                                        <td><font face="trebuchet MS"><?php echo $data["jam"]; ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo indonesian_date_only($data["tgl_berangkat"]); ?></font></td>
+                                        <td><font face="trebuchet MS"><?php echo indonesian_hour_only($data["jam"]); ?></font></td>
                                         <td><font face="trebuchet MS"><?php echo $data["nama_tujuan"]; ?></font></td>
                                         <td>
                                             <a href="pages/tiket/modal.php?id_tiket=<?php echo $data['id_tiket']; ?>" data-toggle="modal" data-target="#WarningModalalert" >

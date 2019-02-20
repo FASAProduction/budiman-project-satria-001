@@ -18,6 +18,11 @@ WHERE tiket.id_tiket='$id_tiket'"
 $data = mysqli_fetch_array($query);
 ?>
 
+<?php
+include '../../../halo-pelanggan/function/indo_date.php';
+include '../../../halo-pelanggan/function/indo_date2.php';
+?>
+
 <div class="modal-close-area modal-close-df">
     <a class="close" href="?act=data_tiket"><i class="fa fa-close"></i></a>
 </div>
@@ -63,7 +68,7 @@ $data = mysqli_fetch_array($query);
                         <label class="login2 pull-right pull-right-pro">Tanggal Transaksi</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="tgl_transaksi" class="form-control" value="<?php echo $data["tgl_transaksi"]; ?>" readonly />
+                        <input type="text" name="tgl_transaksi" class="form-control" value="<?php echo indonesian_date($data["tgl_transaksi"]); ?>" readonly />
                     </div>
                 </div>
             </div>
@@ -93,7 +98,7 @@ $data = mysqli_fetch_array($query);
                         <label class="login2 pull-right pull-right-pro">Tanggal Berangkat</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="tgl_berangkat" class="form-control" value="<?php echo $data["tgl_berangkat"]; ?>" readonly />
+                        <input type="text" name="tgl_berangkat" class="form-control" value="<?php echo indonesian_date_only($data["tgl_berangkat"]); ?>" readonly />
                     </div>
                 </div>
             </div>
