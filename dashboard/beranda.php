@@ -46,17 +46,18 @@
                 <?php
                 $con = new mysqli("localhost", "root", "", "budiman");
 
-                $sql = "SELECT COUNT(*) AS tahun, jadwal_keberangkatan.tujuan, transaksi.tgl_transaksi 
+                $sql = "SELECT COUNT(*) AS tahun, tujuan.nama_tujuan, transaksi.tgl_transaksi 
                 FROM transaksi 
                 JOIN pesan ON pesan.id_pesan = transaksi.id_pesan 
                 JOIN jadwal_keberangkatan ON pesan.id_jadwal = jadwal_keberangkatan.id_jadwal
+                JOIN tujuan ON tujuan.id_tujuan = jadwal_keberangkatan.id_tujuan
                 WHERE YEAR(transaksi.tgl_transaksi) = '" . $_POST['tahun'] . "' 
-                GROUP BY jadwal_keberangkatan.tujuan";
+                GROUP BY tujuan.nama_tujuan";
 
                 $query = mysqli_query($con, $sql);
 
                 while ($row = mysqli_fetch_array($query)) {
-                    $tujuan = $row['tujuan'];
+                    $tujuan = $row['nama_tujuan'];
 
                     // $sqlQuery = "SELECT COUNT(YEAR(transaksi.tgl_transaksi)) as tahun, transaksi.tgl_transaksi, tujuan.nama_tujuan
                     //             FROM transaksi
@@ -159,6 +160,7 @@
                                                 FROM transaksi
                                                 JOIN pesan ON pesan.id_pesan = transaksi.id_pesan 
                                                 JOIN jadwal_keberangkatan ON jadwal_keberangkatan.id_jadwal = pesan.id_jadwal
+                                                JOIN tujuan ON tujuan.id_tujuan = jadwal_keberangkatan.id_tujuan
                                                 GROUP BY YEAR(transaksi.tgl_transaksi)";
                                         $hasil = mysqli_query($kon, $sql);
                                         while ($tahun = mysqli_fetch_assoc($hasil)) {
